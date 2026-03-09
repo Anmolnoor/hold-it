@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B2C5010000000000000000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4010000000000000000 /* AppDelegate.swift */; };
+		A1B2C5020000000000000000 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4020000000000000000 /* AppEnvironment.swift */; };
+		A1B2C5030000000000000000 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4030000000000000000 /* MenuBarController.swift */; };
+		A1B2C5040000000000000000 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4040000000000000000 /* SettingsWindowController.swift */; };
+		A1B2C5050000000000000000 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4050000000000000000 /* Shelf.swift */; };
+		A1B2C5060000000000000000 /* ShelfItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4060000000000000000 /* ShelfItem.swift */; };
+		A1B2C5070000000000000000 /* DragSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4070000000000000000 /* DragSourceController.swift */; };
+		A1B2C5080000000000000000 /* DropReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4080000000000000000 /* DropReceiver.swift */; };
+		A1B2C5090000000000000000 /* DropReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4090000000000000000 /* DropReceiverView.swift */; };
+		A1B2C50A0000000000000000 /* GlobalHotkeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40A0000000000000000 /* GlobalHotkeyController.swift */; };
+		A1B2C50B0000000000000000 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40B0000000000000000 /* PreferencesStore.swift */; };
+		A1B2C50C0000000000000000 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40C0000000000000000 /* SettingsView.swift */; };
+		A1B2C50D0000000000000000 /* ShelfItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40D0000000000000000 /* ShelfItemView.swift */; };
+		A1B2C50E0000000000000000 /* ShelfRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40E0000000000000000 /* ShelfRootView.swift */; };
+		A1B2C50F0000000000000000 /* ShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40F0000000000000000 /* ShelfViewModel.swift */; };
+		A1B2C5100000000000000000 /* ShelfCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4100000000000000000 /* ShelfCoordinator.swift */; };
+		A1B2C5110000000000000000 /* ShelfPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4110000000000000000 /* ShelfPanel.swift */; };
+		A1B2C5120000000000000000 /* ShelfPositioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4120000000000000000 /* ShelfPositioner.swift */; };
+		A1B2C5130000000000000000 /* ShelfWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4130000000000000000 /* ShelfWindowController.swift */; };
+		A1B2C5140000000000000000 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4150000000000000000 /* main.swift */; };
+		A1B2C5150000000000000000 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4160000000000000000 /* AppKit.framework */; };
+		A1B2C5160000000000000000 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4170000000000000000 /* Carbon.framework */; };
+		A1B2C5170000000000000000 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4180000000000000000 /* SwiftUI.framework */; };
+		A1B2C5180000000000000000 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4190000000000000000 /* UniformTypeIdentifiers.framework */; };
+		A1B2C5190000000000000000 /* GlobalDragMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C41B0000000000000000 /* GlobalDragMonitor.swift */; };
+		A1B2C51A0000000000000000 /* DragPreviewDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C41C0000000000000000 /* DragPreviewDescriptor.swift */; };
+		A1B2C51B0000000000000000 /* ShakeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C41D0000000000000000 /* ShakeDetector.swift */; };
+		A1B2C51C0000000000000000 /* ShelfItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C41E0000000000000000 /* ShelfItemsTableView.swift */; };
+		A1B2C51D0000000000000000 /* ShelfPresentationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C41F0000000000000000 /* ShelfPresentationMode.swift */; };
+		A1B2C51E0000000000000000 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4200000000000000000 /* XCTest.framework */; };
+		A1B2C51F0000000000000000 /* ShakeDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4220000000000000000 /* ShakeDetectorTests.swift */; };
+		A1B2C5200000000000000000 /* ShelfViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4230000000000000000 /* ShelfViewModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B2C3260000000000000000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B2C3010000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3040000000000000000;
+			remoteInfo = ShelfKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1B2C4010000000000000000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1B2C4020000000000000000 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		A1B2C4030000000000000000 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		A1B2C4040000000000000000 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		A1B2C4050000000000000000 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		A1B2C4060000000000000000 /* ShelfItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItem.swift; sourceTree = "<group>"; };
+		A1B2C4070000000000000000 /* DragSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSourceController.swift; sourceTree = "<group>"; };
+		A1B2C4080000000000000000 /* DropReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiver.swift; sourceTree = "<group>"; };
+		A1B2C4090000000000000000 /* DropReceiverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiverView.swift; sourceTree = "<group>"; };
+		A1B2C40A0000000000000000 /* GlobalHotkeyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHotkeyController.swift; sourceTree = "<group>"; };
+		A1B2C40B0000000000000000 /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		A1B2C40C0000000000000000 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A1B2C40D0000000000000000 /* ShelfItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItemView.swift; sourceTree = "<group>"; };
+		A1B2C40E0000000000000000 /* ShelfRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRootView.swift; sourceTree = "<group>"; };
+		A1B2C40F0000000000000000 /* ShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewModel.swift; sourceTree = "<group>"; };
+		A1B2C4100000000000000000 /* ShelfCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCoordinator.swift; sourceTree = "<group>"; };
+		A1B2C4110000000000000000 /* ShelfPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPanel.swift; sourceTree = "<group>"; };
+		A1B2C4120000000000000000 /* ShelfPositioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPositioner.swift; sourceTree = "<group>"; };
+		A1B2C4130000000000000000 /* ShelfWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfWindowController.swift; sourceTree = "<group>"; };
+		A1B2C4140000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C4150000000000000000 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A1B2C4160000000000000000 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A1B2C4170000000000000000 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		A1B2C4180000000000000000 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A1B2C4190000000000000000 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		A1B2C41A0000000000000000 /* ShelfKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = ShelfKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C41B0000000000000000 /* GlobalDragMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDragMonitor.swift; sourceTree = "<group>"; };
+		A1B2C41C0000000000000000 /* DragPreviewDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragPreviewDescriptor.swift; sourceTree = "<group>"; };
+		A1B2C41D0000000000000000 /* ShakeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetector.swift; sourceTree = "<group>"; };
+		A1B2C41E0000000000000000 /* ShelfItemsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItemsTableView.swift; sourceTree = "<group>"; };
+		A1B2C41F0000000000000000 /* ShelfPresentationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPresentationMode.swift; sourceTree = "<group>"; };
+		A1B2C4200000000000000000 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A1B2C4210000000000000000 /* ShelfKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ShelfKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C4220000000000000000 /* ShakeDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorTests.swift; sourceTree = "<group>"; };
+		A1B2C4230000000000000000 /* ShelfViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewModelTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3080000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C5150000000000000000 /* AppKit.framework in Frameworks */,
+				A1B2C5160000000000000000 /* Carbon.framework in Frameworks */,
+				A1B2C5170000000000000000 /* SwiftUI.framework in Frameworks */,
+				A1B2C5180000000000000000 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3220000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C51E0000000000000000 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C3020000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3100000000000000000 /* ShelfKit */,
+				A1B2C31A0000000000000000 /* ShelfKitTests */,
+				A1B2C3180000000000000000 /* Frameworks */,
+				A1B2C3190000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3100000000000000000 /* ShelfKit */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3110000000000000000 /* App */,
+				A1B2C3120000000000000000 /* Domain */,
+				A1B2C3130000000000000000 /* DragDrop */,
+				A1B2C3140000000000000000 /* Storage */,
+				A1B2C3150000000000000000 /* UI */,
+				A1B2C3160000000000000000 /* Windowing */,
+				A1B2C3170000000000000000 /* Resources */,
+				A1B2C4150000000000000000 /* main.swift */,
+			);
+			path = ShelfKit;
+			sourceTree = "<group>";
+		};
+		A1B2C3110000000000000000 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4010000000000000000 /* AppDelegate.swift */,
+				A1B2C4020000000000000000 /* AppEnvironment.swift */,
+				A1B2C4030000000000000000 /* MenuBarController.swift */,
+				A1B2C4040000000000000000 /* SettingsWindowController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A1B2C3120000000000000000 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4050000000000000000 /* Shelf.swift */,
+				A1B2C4060000000000000000 /* ShelfItem.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A1B2C3130000000000000000 /* DragDrop */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C41C0000000000000000 /* DragPreviewDescriptor.swift */,
+				A1B2C4070000000000000000 /* DragSourceController.swift */,
+				A1B2C4080000000000000000 /* DropReceiver.swift */,
+				A1B2C4090000000000000000 /* DropReceiverView.swift */,
+				A1B2C41B0000000000000000 /* GlobalDragMonitor.swift */,
+				A1B2C40A0000000000000000 /* GlobalHotkeyController.swift */,
+				A1B2C41D0000000000000000 /* ShakeDetector.swift */,
+			);
+			path = DragDrop;
+			sourceTree = "<group>";
+		};
+		A1B2C3140000000000000000 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C40B0000000000000000 /* PreferencesStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A1B2C3150000000000000000 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C40C0000000000000000 /* SettingsView.swift */,
+				A1B2C40D0000000000000000 /* ShelfItemView.swift */,
+				A1B2C41E0000000000000000 /* ShelfItemsTableView.swift */,
+				A1B2C41F0000000000000000 /* ShelfPresentationMode.swift */,
+				A1B2C40E0000000000000000 /* ShelfRootView.swift */,
+				A1B2C40F0000000000000000 /* ShelfViewModel.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A1B2C3160000000000000000 /* Windowing */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4100000000000000000 /* ShelfCoordinator.swift */,
+				A1B2C4110000000000000000 /* ShelfPanel.swift */,
+				A1B2C4120000000000000000 /* ShelfPositioner.swift */,
+				A1B2C4130000000000000000 /* ShelfWindowController.swift */,
+			);
+			path = Windowing;
+			sourceTree = "<group>";
+		};
+		A1B2C3170000000000000000 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4140000000000000000 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1B2C3180000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4160000000000000000 /* AppKit.framework */,
+				A1B2C4170000000000000000 /* Carbon.framework */,
+				A1B2C4180000000000000000 /* SwiftUI.framework */,
+				A1B2C4190000000000000000 /* UniformTypeIdentifiers.framework */,
+				A1B2C4200000000000000000 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B2C3190000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C41A0000000000000000 /* ShelfKit.app */,
+				A1B2C4210000000000000000 /* ShelfKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1B2C31A0000000000000000 /* ShelfKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C4220000000000000000 /* ShakeDetectorTests.swift */,
+				A1B2C4230000000000000000 /* ShelfViewModelTests.swift */,
+			);
+			path = ShelfKitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C3040000000000000000 /* ShelfKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKit" */;
+			buildPhases = (
+				A1B2C3070000000000000000 /* Sources */,
+				A1B2C3080000000000000000 /* Frameworks */,
+				A1B2C3090000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShelfKit;
+			packageProductDependencies = (
+			);
+			productName = ShelfKit;
+			productReference = A1B2C41A0000000000000000 /* ShelfKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1B2C3210000000000000000 /* ShelfKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3250000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKitTests" */;
+			buildPhases = (
+				A1B2C3230000000000000000 /* Sources */,
+				A1B2C3220000000000000000 /* Frameworks */,
+				A1B2C3240000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B2C3270000000000000000 /* PBXTargetDependency */,
+			);
+			name = ShelfKitTests;
+			packageProductDependencies = (
+			);
+			productName = ShelfKitTests;
+			productReference = A1B2C4210000000000000000 /* ShelfKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3010000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A1B2C3040000000000000000 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B2C3050000000000000000 /* Build configuration list for PBXProject "ShelfKit" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B2C3020000000000000000;
+			productRefGroup = A1B2C3190000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C3040000000000000000 /* ShelfKit */,
+				A1B2C3210000000000000000 /* ShelfKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3090000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3240000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3070000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C5010000000000000000 /* AppDelegate.swift in Sources */,
+				A1B2C5020000000000000000 /* AppEnvironment.swift in Sources */,
+				A1B2C5030000000000000000 /* MenuBarController.swift in Sources */,
+				A1B2C5040000000000000000 /* SettingsWindowController.swift in Sources */,
+				A1B2C5050000000000000000 /* Shelf.swift in Sources */,
+				A1B2C5060000000000000000 /* ShelfItem.swift in Sources */,
+				A1B2C5070000000000000000 /* DragSourceController.swift in Sources */,
+				A1B2C5080000000000000000 /* DropReceiver.swift in Sources */,
+				A1B2C5090000000000000000 /* DropReceiverView.swift in Sources */,
+				A1B2C50A0000000000000000 /* GlobalHotkeyController.swift in Sources */,
+				A1B2C5190000000000000000 /* GlobalDragMonitor.swift in Sources */,
+				A1B2C51A0000000000000000 /* DragPreviewDescriptor.swift in Sources */,
+				A1B2C51B0000000000000000 /* ShakeDetector.swift in Sources */,
+				A1B2C50B0000000000000000 /* PreferencesStore.swift in Sources */,
+				A1B2C50C0000000000000000 /* SettingsView.swift in Sources */,
+				A1B2C50D0000000000000000 /* ShelfItemView.swift in Sources */,
+				A1B2C51C0000000000000000 /* ShelfItemsTableView.swift in Sources */,
+				A1B2C51D0000000000000000 /* ShelfPresentationMode.swift in Sources */,
+				A1B2C50E0000000000000000 /* ShelfRootView.swift in Sources */,
+				A1B2C50F0000000000000000 /* ShelfViewModel.swift in Sources */,
+				A1B2C5100000000000000000 /* ShelfCoordinator.swift in Sources */,
+				A1B2C5110000000000000000 /* ShelfPanel.swift in Sources */,
+				A1B2C5120000000000000000 /* ShelfPositioner.swift in Sources */,
+				A1B2C5130000000000000000 /* ShelfWindowController.swift in Sources */,
+				A1B2C5140000000000000000 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3230000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C51F0000000000000000 /* ShakeDetectorTests.swift in Sources */,
+				A1B2C5200000000000000000 /* ShelfViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3270000000000000000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3040000000000000000 /* ShelfKit */;
+			targetProxy = A1B2C3260000000000000000 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C6010000000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C6020000000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A1B2C6030000000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShelfKit/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C6040000000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShelfKit/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A1B2C6050000000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShelfKit.app/Contents/MacOS/ShelfKit";
+			};
+			name = Debug;
+		};
+		A1B2C6060000000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShelfKit.app/Contents/MacOS/ShelfKit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3050000000000000000 /* Build configuration list for PBXProject "ShelfKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C6010000000000000000 /* Debug */,
+				A1B2C6020000000000000000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C6030000000000000000 /* Debug */,
+				A1B2C6040000000000000000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3250000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C6050000000000000000 /* Debug */,
+				A1B2C6060000000000000000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3010000000000000000 /* Project object */;
+}

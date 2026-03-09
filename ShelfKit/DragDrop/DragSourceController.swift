@@ -1,0 +1,65 @@
+import AppKit
+
+struct ShelfExportPayload {
+    let items: [ShelfItem]
+    let itemIDs: Set<ShelfItem.ID>
+    let pasteboardWriters: [NSPasteboardWriting]
+}
+
+enum DragSourceController {
+    static func wholeShelfExportPayload(for items: [ShelfItem]) -> ShelfExportPayload? {
+        let exportedEntries = items.compactMap { item -> (ShelfItem, NSPasteboardWriting)? in
+            guard let writer = pasteboardWriter(for: item) else {
+                return nil
+            }
+
+            return (item, writer)
+        }
+
+        let writers = exportedEntries.map(\.1)
+        guard writers.isEmpty == false else {
+            return nil
+        }
+
+        let exportedItems = exportedEntries.map(\.0)
+        return ShelfExportPayload(
+            items: exportedItems,
+            itemIDs: Set(exportedItems.map(\.id)),
+            pasteboardWriters: writers
+        )
+    }
+
+    static func pasteboardWriter(for item: ShelfItem) -> NSPasteboardWriting? {
+        switch item.type {
+        case .file, .folder:
+            if let url = item.originalURL {
+                return url as NSURL
+            }
+
+            return item.displayName as NSString
+
+        case .text:
+            return (item.textValue ?? item.displayName) as NSString
+
+        case .url:
+            if let url = item.originalURL {
+                return url as NSURL
+            }
+
+            return item.displayName as NSString
+        }
+    }
+
+    static func sourceOperationMask(for items: [ShelfItem], context: NSDraggingContext) -> NSDragOperation {
+        switch context {
+        case .withinApplication:
+            return .copy
+
+        case .outsideApplication:
+            return items.contains(where: \.isFileSystemItem) ? [.copy, .move] : .copy
+
+        @unknown default:
+            return items.contains(where: \.isFileSystemItem) ? [.copy, .move] : .copy
+        }
+    }
+}
