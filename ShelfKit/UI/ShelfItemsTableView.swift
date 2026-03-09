@@ -56,6 +56,7 @@ struct ShelfItemsTableView: NSViewRepresentable {
         private var isSyncingSelection = false
         private var currentDragItems: [ShelfItem] = []
         private var currentDragItemIDs: Set<ShelfItem.ID> = []
+        private var didSeeOutsideDragContext = false
         private var renderedItems: [ShelfItem] = []
         private var renderedSelectionIDs: Set<ShelfItem.ID> = []
 
@@ -127,6 +128,7 @@ struct ShelfItemsTableView: NSViewRepresentable {
             willBeginAt screenPoint: NSPoint,
             forRowIndexes rowIndexes: IndexSet
         ) {
+            didSeeOutsideDragContext = false
             currentDragItems = rowIndexes.compactMap { row in
                 guard viewModel.items.indices.contains(row) else {
                     return nil
@@ -144,9 +146,12 @@ struct ShelfItemsTableView: NSViewRepresentable {
             operation: NSDragOperation
         ) {
             let movedItemIDs = currentDragItemIDs
-            let shouldConsumeMovedItems = operation.contains(.move)
+            let shouldConsumeExportedItems = didSeeOutsideDragContext
+                && operation.isEmpty == false
+                && movedItemIDs.isEmpty == false
             currentDragItems.removeAll()
             currentDragItemIDs.removeAll()
+            didSeeOutsideDragContext = false
 
             // Let AppKit finish unwinding the drag session before reloading the source table.
             DispatchQueue.main.async { [weak self] in
@@ -154,7 +159,7 @@ struct ShelfItemsTableView: NSViewRepresentable {
                     return
                 }
 
-                if shouldConsumeMovedItems {
+                if shouldConsumeExportedItems {
                     self.viewModel.consumeExportedItemsAndCloseIfEmpty(ids: movedItemIDs)
                 }
 
@@ -163,6 +168,10 @@ struct ShelfItemsTableView: NSViewRepresentable {
         }
 
         func sourceOperationMask(for context: NSDraggingContext) -> NSDragOperation {
+            if context == .outsideApplication {
+                didSeeOutsideDragContext = true
+            }
+
             let dragItems = currentDragItems.isEmpty
                 ? viewModel.items(for: viewModel.selectedItemIDs)
                 : currentDragItems

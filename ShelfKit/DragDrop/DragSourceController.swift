@@ -32,7 +32,7 @@ enum DragSourceController {
     static func pasteboardWriter(for item: ShelfItem) -> NSPasteboardWriting? {
         switch item.type {
         case .file, .folder:
-            if let url = item.originalURL {
+            if let url = item.originalURL ?? item.localStoredURL {
                 return url as NSURL
             }
 

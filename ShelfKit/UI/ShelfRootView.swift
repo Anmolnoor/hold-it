@@ -297,7 +297,7 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
     private var didBeginDrag = false
     private var activeExportedItemIDs: Set<ShelfItem.ID> = []
     private var didSeeOutsideContext = false
-    private var latestDragContext: NSDraggingContext = .withinApplication
+    private var previousWindowMovableByBackground: Bool?
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -310,7 +310,13 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override var mouseDownCanMoveWindow: Bool {
+        false
+    }
+
     override func mouseDown(with event: NSEvent) {
+        previousWindowMovableByBackground = window?.isMovableByWindowBackground
+        window?.isMovableByWindowBackground = false
         initialMouseDownEvent = event
         didBeginDrag = false
     }
@@ -329,6 +335,7 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
     }
 
     override func mouseUp(with event: NSEvent) {
+        restoreWindowMovabilityIfNeeded()
         initialMouseDownEvent = nil
         didBeginDrag = false
     }
@@ -337,7 +344,6 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
         _ session: NSDraggingSession,
         sourceOperationMaskFor context: NSDraggingContext
     ) -> NSDragOperation {
-        latestDragContext = context
         if context == .outsideApplication {
             didSeeOutsideContext = true
         }
@@ -355,7 +361,6 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
     ) {
         let exportedItemIDs = activeExportedItemIDs
         let shouldConsumeAfterExternalDrop = didSeeOutsideContext
-            && latestDragContext == .outsideApplication
             && operation.isEmpty == false
             && exportedItemIDs.isEmpty == false
 
@@ -381,7 +386,6 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
 
         activeExportedItemIDs = payload.itemIDs
         didSeeOutsideContext = false
-        latestDragContext = .withinApplication
 
         let baseFrame = bounds.insetBy(dx: 8, dy: 8)
         let dragItems = payload.pasteboardWriters.enumerated().map { index, writer in
@@ -398,11 +402,20 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
     }
 
     private func resetDragState() {
+        restoreWindowMovabilityIfNeeded()
         activeExportedItemIDs.removeAll()
         didSeeOutsideContext = false
-        latestDragContext = .withinApplication
         initialMouseDownEvent = nil
         didBeginDrag = false
+    }
+
+    private func restoreWindowMovabilityIfNeeded() {
+        guard let previousWindowMovableByBackground else {
+            return
+        }
+
+        window?.isMovableByWindowBackground = previousWindowMovableByBackground
+        self.previousWindowMovableByBackground = nil
     }
 
     private static let dragImage: NSImage = {
