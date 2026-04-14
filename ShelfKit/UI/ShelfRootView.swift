@@ -41,6 +41,10 @@ struct ShelfRootView: View {
             Color.black.opacity(0.001)
 
             landedBackgroundPanel
+                .overlay(alignment: .topTrailing) {
+                    closeButton
+                        .padding(12)
+                }
 
             landedStackIcon
                 .frame(width: 108, height: 132)
@@ -74,6 +78,18 @@ struct ShelfRootView: View {
                     .stroke(Color.white.opacity(0.08), lineWidth: 1)
             )
             .shadow(color: Color.black.opacity(0.28), radius: 18, y: 8)
+    }
+
+    private var closeButton: some View {
+        Button {
+            viewModel.requestClose()
+        } label: {
+            Image(systemName: "xmark.circle.fill")
+                .font(.system(size: 18, weight: .medium))
+                .foregroundStyle(.white.opacity(0.5))
+                .contentShape(Circle())
+        }
+        .buttonStyle(.plain)
     }
 
     private var landedStackIcon: some View {
