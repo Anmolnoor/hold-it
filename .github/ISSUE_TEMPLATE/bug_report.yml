@@ -1,0 +1,61 @@
+name: Bug Report
+description: Report a bug in HoldIt
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the fields below.
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS Version
+      placeholder: "e.g., macOS 14.3"
+    validations:
+      required: true
+  - type: input
+    id: holdit-version
+    attributes:
+      label: HoldIt Version
+      placeholder: "e.g., 0.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear description of what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, console logs, or anything else that might help.
+    validations:
+      required: false
