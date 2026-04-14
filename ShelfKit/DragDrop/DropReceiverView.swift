@@ -27,13 +27,13 @@ final class DropReceiverView<Content: View>: NSView {
     }
 
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        guard DropReceiver.canRead(sender.draggingPasteboard) else {
-            updateHighlight(isHighlighted: false)
-            return []
-        }
-
-        updateHighlight(isHighlighted: true)
-        return .copy
+        let operation = Self.dropOperation(
+            canRead: DropReceiver.canRead(sender.draggingPasteboard),
+            sourceOperationMask: sender.draggingSourceOperationMask,
+            isSameWindowSource: isDragFromSameWindow(sender)
+        )
+        updateHighlight(isHighlighted: operation.isEmpty == false)
+        return operation
     }
 
     override func draggingUpdated(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -45,7 +45,11 @@ final class DropReceiverView<Content: View>: NSView {
     }
 
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        DropReceiver.canRead(sender.draggingPasteboard)
+        Self.dropOperation(
+            canRead: DropReceiver.canRead(sender.draggingPasteboard),
+            sourceOperationMask: sender.draggingSourceOperationMask,
+            isSameWindowSource: isDragFromSameWindow(sender)
+        ).isEmpty == false
     }
 
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
@@ -78,5 +82,37 @@ final class DropReceiverView<Content: View>: NSView {
 
     private func updateHighlight(isHighlighted: Bool) {
         layer?.borderWidth = isHighlighted ? 3 : 0
+    }
+
+    static func dropOperation(
+        canRead: Bool,
+        sourceOperationMask: NSDragOperation,
+        isSameWindowSource: Bool
+    ) -> NSDragOperation {
+        guard canRead else {
+            return []
+        }
+
+        guard isSameWindowSource == false else {
+            return []
+        }
+
+        if sourceOperationMask.contains(.move) {
+            return .move
+        }
+
+        if sourceOperationMask.contains(.copy) {
+            return .copy
+        }
+
+        return []
+    }
+
+    private func isDragFromSameWindow(_ sender: NSDraggingInfo) -> Bool {
+        guard let sourceView = sender.draggingSource as? NSView else {
+            return false
+        }
+
+        return sourceView.window === window
     }
 }

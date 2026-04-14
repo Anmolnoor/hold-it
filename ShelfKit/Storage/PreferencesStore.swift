@@ -1,6 +1,7 @@
 import Combine
 import CoreGraphics
 import Foundation
+import ServiceManagement
 
 @MainActor
 final class PreferencesStore: ObservableObject {
@@ -33,6 +34,22 @@ final class PreferencesStore: ObservableObject {
 
         preferredShelfWidth = storedWidth ?? 360
         preferredShelfHeight = storedHeight ?? 420
+    }
+
+    var launchAtLogin: Bool {
+        get { SMAppService.mainApp.status == .enabled }
+        set {
+            objectWillChange.send()
+            do {
+                if newValue {
+                    try SMAppService.mainApp.register()
+                } else {
+                    try SMAppService.mainApp.unregister()
+                }
+            } catch {
+                // Registration can fail when running unsigned from Xcode.
+            }
+        }
     }
 
     var shelfSize: CGSize {

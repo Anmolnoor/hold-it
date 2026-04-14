@@ -146,9 +146,11 @@ struct ShelfItemsTableView: NSViewRepresentable {
             operation: NSDragOperation
         ) {
             let movedItemIDs = currentDragItemIDs
-            let shouldConsumeExportedItems = didSeeOutsideDragContext
-                && operation.isEmpty == false
-                && movedItemIDs.isEmpty == false
+            let shouldConsumeExportedItems = DragSourceController.shouldConsumeExportedItems(
+                after: operation,
+                didLeaveApplication: didSeeOutsideDragContext,
+                exportedItemIDs: movedItemIDs
+            )
             currentDragItems.removeAll()
             currentDragItemIDs.removeAll()
             didSeeOutsideDragContext = false

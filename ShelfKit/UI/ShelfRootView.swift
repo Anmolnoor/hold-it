@@ -360,13 +360,15 @@ final class ShelfStackDragSourceNSView: NSView, NSDraggingSource {
         operation: NSDragOperation
     ) {
         let exportedItemIDs = activeExportedItemIDs
-        let shouldConsumeAfterExternalDrop = didSeeOutsideContext
-            && operation.isEmpty == false
-            && exportedItemIDs.isEmpty == false
+        let shouldConsumeAfterDrop = DragSourceController.shouldConsumeExportedItems(
+            after: operation,
+            didLeaveApplication: didSeeOutsideContext,
+            exportedItemIDs: exportedItemIDs
+        )
 
         resetDragState()
 
-        guard shouldConsumeAfterExternalDrop else {
+        guard shouldConsumeAfterDrop else {
             return
         }
 

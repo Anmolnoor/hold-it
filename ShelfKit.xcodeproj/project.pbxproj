@@ -39,6 +39,13 @@
 		A1B2C51E0000000000000000 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4200000000000000000 /* XCTest.framework */; };
 		A1B2C51F0000000000000000 /* ShakeDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4220000000000000000 /* ShakeDetectorTests.swift */; };
 		A1B2C5200000000000000000 /* ShelfViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4230000000000000000 /* ShelfViewModelTests.swift */; };
+		A1B2C5210000000000000001 /* ShelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4240000000000000001 /* ShelfTests.swift */; };
+		A1B2C5220000000000000002 /* ShelfItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4250000000000000002 /* ShelfItemTests.swift */; };
+		A1B2C5230000000000000003 /* DragPreviewDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4260000000000000003 /* DragPreviewDescriptorTests.swift */; };
+		A1B2C5240000000000000004 /* DragSourceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4270000000000000004 /* DragSourceControllerTests.swift */; };
+		A1B2C5250000000000000005 /* DropReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4280000000000000005 /* DropReceiverTests.swift */; };
+		A1B2C5260000000000000006 /* PreferencesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4290000000000000006 /* PreferencesStoreTests.swift */; };
+		A1B2C5270000000000000007 /* ShelfPresentationModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +94,13 @@
 		A1B2C4210000000000000000 /* ShelfKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ShelfKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C4220000000000000000 /* ShakeDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorTests.swift; sourceTree = "<group>"; };
 		A1B2C4230000000000000000 /* ShelfViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewModelTests.swift; sourceTree = "<group>"; };
+		A1B2C4240000000000000001 /* ShelfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfTests.swift; sourceTree = "<group>"; };
+		A1B2C4250000000000000002 /* ShelfItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItemTests.swift; sourceTree = "<group>"; };
+		A1B2C4260000000000000003 /* DragPreviewDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragPreviewDescriptorTests.swift; sourceTree = "<group>"; };
+		A1B2C4270000000000000004 /* DragSourceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSourceControllerTests.swift; sourceTree = "<group>"; };
+		A1B2C4280000000000000005 /* DropReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiverTests.swift; sourceTree = "<group>"; };
+		A1B2C4290000000000000006 /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
+		A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPresentationModeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,7 +249,14 @@
 		A1B2C31A0000000000000000 /* ShelfKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1B2C4260000000000000003 /* DragPreviewDescriptorTests.swift */,
+				A1B2C4270000000000000004 /* DragSourceControllerTests.swift */,
+				A1B2C4280000000000000005 /* DropReceiverTests.swift */,
+				A1B2C4290000000000000006 /* PreferencesStoreTests.swift */,
 				A1B2C4220000000000000000 /* ShakeDetectorTests.swift */,
+				A1B2C4240000000000000001 /* ShelfTests.swift */,
+				A1B2C4250000000000000002 /* ShelfItemTests.swift */,
+				A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */,
 				A1B2C4230000000000000000 /* ShelfViewModelTests.swift */,
 			);
 			path = ShelfKitTests;
@@ -372,6 +393,13 @@
 			files = (
 				A1B2C51F0000000000000000 /* ShakeDetectorTests.swift in Sources */,
 				A1B2C5200000000000000000 /* ShelfViewModelTests.swift in Sources */,
+				A1B2C5210000000000000001 /* ShelfTests.swift in Sources */,
+				A1B2C5220000000000000002 /* ShelfItemTests.swift in Sources */,
+				A1B2C5230000000000000003 /* DragPreviewDescriptorTests.swift in Sources */,
+				A1B2C5240000000000000004 /* DragSourceControllerTests.swift in Sources */,
+				A1B2C5250000000000000005 /* DropReceiverTests.swift in Sources */,
+				A1B2C5260000000000000006 /* PreferencesStoreTests.swift in Sources */,
+				A1B2C5270000000000000007 /* ShelfPresentationModeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +449,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				ENABLE_TESTABILITY = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

@@ -17,6 +17,10 @@ struct SettingsView: View {
                 .padding(.vertical, 4)
             }
 
+            Section("General") {
+                Toggle("Launch at Login", isOn: launchAtLoginBinding)
+            }
+
             Section("Shortcut") {
                 Text("New shelf hotkey: \(preferences.newShelfHotkeyDescription)")
                 Text("This first pass keeps the shortcut fixed while the panel and drag model settle.")
@@ -29,5 +33,12 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .padding(20)
+    }
+
+    private var launchAtLoginBinding: Binding<Bool> {
+        Binding(
+            get: { preferences.launchAtLogin },
+            set: { preferences.launchAtLogin = $0 }
+        )
     }
 }

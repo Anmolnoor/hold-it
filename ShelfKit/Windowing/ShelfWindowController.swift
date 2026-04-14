@@ -35,7 +35,7 @@ final class ShelfWindowController: NSWindowController, NSWindowDelegate {
         panel.title = shelf.name
 
         viewModel.closeShelf = { [weak panel] in
-            panel?.performClose(nil)
+            panel?.close()
         }
 
         let rootView = ShelfRootView(viewModel: viewModel)

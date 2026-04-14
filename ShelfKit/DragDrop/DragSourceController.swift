@@ -53,7 +53,7 @@ enum DragSourceController {
     static func sourceOperationMask(for items: [ShelfItem], context: NSDraggingContext) -> NSDragOperation {
         switch context {
         case .withinApplication:
-            return .copy
+            return items.isEmpty ? [] : [.copy, .move]
 
         case .outsideApplication:
             return items.contains(where: \.isFileSystemItem) ? [.copy, .move] : .copy
@@ -61,5 +61,21 @@ enum DragSourceController {
         @unknown default:
             return items.contains(where: \.isFileSystemItem) ? [.copy, .move] : .copy
         }
+    }
+
+    static func shouldConsumeExportedItems(
+        after operation: NSDragOperation,
+        didLeaveApplication: Bool,
+        exportedItemIDs: Set<ShelfItem.ID>
+    ) -> Bool {
+        guard exportedItemIDs.isEmpty == false else {
+            return false
+        }
+
+        if operation.contains(.move) {
+            return true
+        }
+
+        return didLeaveApplication && operation.isEmpty == false
     }
 }
