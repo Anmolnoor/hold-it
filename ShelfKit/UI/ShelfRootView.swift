@@ -6,7 +6,9 @@ struct ShelfRootView: View {
 
     var body: some View {
         Group {
-            if viewModel.isPreview {
+            if viewModel.isNotchPresentation {
+                notchState
+            } else if viewModel.isPreview {
                 previewStateContainer
             } else {
                 landedState
@@ -34,6 +36,97 @@ struct ShelfRootView: View {
                 .stroke(Color.black.opacity(0.07), lineWidth: 1)
         )
         .frame(minWidth: 250, minHeight: 112)
+    }
+
+    private var notchState: some View {
+        ZStack {
+            Color.black.opacity(0.001)
+
+            notchBody
+                .overlay(alignment: .topTrailing) {
+                    closeButton
+                        .padding(.top, 8)
+                        .padding(.trailing, 8)
+                }
+                .overlay {
+                    ShelfStackDragSourceView(items: viewModel.items) { exportedIDs in
+                        viewModel.consumeExportedItemsAndCloseIfEmpty(ids: exportedIDs)
+                    }
+                }
+        }
+        .frame(
+            width: ShelfWindowController.notchShelfSize.width,
+            height: ShelfWindowController.notchShelfSize.height
+        )
+    }
+
+    private var notchBody: some View {
+        HStack(spacing: 12) {
+            Image(systemName: viewModel.notchLeadingSymbolName)
+                .font(.system(size: 15, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(width: 28, height: 28)
+                .background(
+                    RoundedRectangle(cornerRadius: 9, style: .continuous)
+                        .fill(Color.white.opacity(viewModel.items.isEmpty ? 0.10 : 0.18))
+                )
+
+            VStack(alignment: .leading, spacing: 1) {
+                Text(viewModel.notchTitle)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+
+                Text(viewModel.notchSubtitle)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(Color.white.opacity(0.70))
+                    .lineLimit(1)
+            }
+
+            Spacer(minLength: 0)
+
+            Text(viewModel.notchCountText)
+                .font(.system(size: 13, weight: .bold, design: .rounded))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(
+                    Capsule()
+                        .fill(Color.white.opacity(viewModel.items.isEmpty ? 0.08 : 0.16))
+                )
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(notchBackground)
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(
+                    viewModel.isDropTargetActive
+                        ? Color.accentColor.opacity(0.95)
+                        : Color.white.opacity(0.10),
+                    lineWidth: viewModel.isDropTargetActive ? 2 : 1
+                )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .shadow(
+            color: viewModel.isDropTargetActive ? Color.accentColor.opacity(0.26) : Color.black.opacity(0.28),
+            radius: viewModel.isDropTargetActive ? 16 : 12,
+            y: 6
+        )
+    }
+
+    private var notchBackground: some View {
+        RoundedRectangle(cornerRadius: 18, style: .continuous)
+            .fill(
+                LinearGradient(
+                    colors: [
+                        Color.black.opacity(viewModel.isDropTargetActive ? 0.94 : 0.86),
+                        Color.black.opacity(viewModel.isDropTargetActive ? 0.82 : 0.74)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
     }
 
     private var landedState: some View {

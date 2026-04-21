@@ -45,7 +45,15 @@ final class ShelfPanel: NSPanel {
     }
 
     func applyPresentationMode(_ presentationMode: ShelfPresentationMode) {
-        if presentationMode.isPreview {
+        if presentationMode.isNotchPresentation {
+            styleMask = Self.landedStyleMask
+            titleVisibility = .hidden
+            titlebarAppearsTransparent = true
+            isMovableByWindowBackground = true
+            standardWindowButton(.closeButton)?.isHidden = true
+            standardWindowButton(.miniaturizeButton)?.isHidden = true
+            standardWindowButton(.zoomButton)?.isHidden = true
+        } else if presentationMode.isPreview {
             styleMask = Self.previewStyleMask
             titleVisibility = .hidden
             titlebarAppearsTransparent = true

@@ -5,10 +5,19 @@ import SwiftUI
 final class DropReceiverView<Content: View>: NSView {
     private let hostingView: NSHostingView<Content>
     private let onItemsDropped: ([ShelfItem]) -> Void
+    private let onDropTargetActiveChanged: (Bool) -> Void
+    private let showsBorderHighlight: Bool
 
-    init(rootView: Content, onItemsDropped: @escaping ([ShelfItem]) -> Void) {
+    init(
+        rootView: Content,
+        onItemsDropped: @escaping ([ShelfItem]) -> Void,
+        onDropTargetActiveChanged: @escaping (Bool) -> Void = { _ in },
+        showsBorderHighlight: Bool = true
+    ) {
         self.hostingView = NSHostingView(rootView: rootView)
         self.onItemsDropped = onItemsDropped
+        self.onDropTargetActiveChanged = onDropTargetActiveChanged
+        self.showsBorderHighlight = showsBorderHighlight
 
         super.init(frame: .zero)
 
@@ -81,7 +90,8 @@ final class DropReceiverView<Content: View>: NSView {
     }
 
     private func updateHighlight(isHighlighted: Bool) {
-        layer?.borderWidth = isHighlighted ? 3 : 0
+        layer?.borderWidth = showsBorderHighlight && isHighlighted ? 3 : 0
+        onDropTargetActiveChanged(isHighlighted)
     }
 
     static func dropOperation(

@@ -10,9 +10,15 @@ final class ShelfCoordinator {
 
     @discardableResult
     func createShelf() -> ShelfWindowController {
-        createShelf(
-            presentationMode: .expanded,
-            frame: ShelfPositioner.initialFrame(
+        let mouseLocation = NSEvent.mouseLocation
+        let notchFrame = ShelfPositioner.notchFrame(
+            near: mouseLocation,
+            size: ShelfWindowController.notchShelfSize
+        )
+
+        return createShelf(
+            presentationMode: notchFrame == nil ? .expanded : .notchExpanded,
+            frame: notchFrame ?? ShelfPositioner.initialFrame(
                 for: ShelfWindowController.landedShelfSize,
                 index: creationIndex
             )
@@ -28,12 +34,16 @@ final class ShelfCoordinator {
             return nil
         }
 
-        let previewFrame = ShelfPositioner.dragPreviewFrame(
+        let notchFrame = ShelfPositioner.notchFrame(
+            near: cursorLocation,
+            size: ShelfWindowController.notchShelfSize
+        )
+        let previewFrame = notchFrame ?? ShelfPositioner.dragPreviewFrame(
             under: cursorLocation,
             size: CGSize(width: 280, height: 124)
         )
         let controller = createShelf(
-            presentationMode: .preview(descriptor),
+            presentationMode: notchFrame == nil ? .preview(descriptor) : .notchPreview(descriptor),
             frame: previewFrame
         )
 

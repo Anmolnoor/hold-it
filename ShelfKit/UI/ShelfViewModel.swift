@@ -6,6 +6,7 @@ final class ShelfViewModel: ObservableObject {
     @Published private(set) var shelf: Shelf
     @Published private(set) var presentationMode: ShelfPresentationMode
     @Published private(set) var selectedItemIDs: Set<ShelfItem.ID> = []
+    @Published private(set) var isDropTargetActive = false
 
     var closeShelf: (() -> Void)?
 
@@ -33,6 +34,10 @@ final class ShelfViewModel: ObservableObject {
         presentationMode.isPreview
     }
 
+    var isNotchPresentation: Bool {
+        presentationMode.isNotchPresentation
+    }
+
     var previewDescriptor: DragPreviewDescriptor? {
         presentationMode.previewDescriptor
     }
@@ -52,6 +57,40 @@ final class ShelfViewModel: ObservableObject {
 
     var showSelectionControl: Bool {
         presentationMode.isPreview == false && items.count > 1
+    }
+
+    var notchLeadingSymbolName: String {
+        let itemTypes = Set(items.map(\.type))
+
+        if items.isEmpty {
+            return "tray"
+        }
+
+        if itemTypes.allSatisfy({ $0 == .file || $0 == .folder }) {
+            return "doc.fill"
+        }
+
+        if itemTypes.count == 1, itemTypes.contains(.text) {
+            return "text.alignleft"
+        }
+
+        if itemTypes.count == 1, itemTypes.contains(.url) {
+            return "link"
+        }
+
+        return "square.stack.3d.up.fill"
+    }
+
+    var notchCountText: String {
+        "\(items.count)"
+    }
+
+    var notchTitle: String {
+        items.isEmpty ? "Drop files here" : title
+    }
+
+    var notchSubtitle: String {
+        items.isEmpty ? "Collect under the notch" : itemCountDescription
     }
 
     func append(items newItems: [ShelfItem]) {
@@ -117,6 +156,10 @@ final class ShelfViewModel: ObservableObject {
 
     func setPresentationMode(_ mode: ShelfPresentationMode) {
         presentationMode = mode
+    }
+
+    func setDropTargetActive(_ isActive: Bool) {
+        isDropTargetActive = isActive
     }
 
     func items(for ids: Set<ShelfItem.ID>) -> [ShelfItem] {

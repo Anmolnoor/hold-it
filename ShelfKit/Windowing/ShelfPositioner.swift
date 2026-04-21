@@ -1,6 +1,62 @@
 import AppKit
 
+struct ShelfNotchGeometry {
+    let screenFrame: NSRect
+    let safeAreaInsets: NSEdgeInsets
+
+    var safeAreaTopY: CGFloat {
+        screenFrame.maxY - safeAreaInsets.top
+    }
+}
+
+enum ShelfNotchSupport {
+    static func geometry(near point: CGPoint) -> ShelfNotchGeometry? {
+        guard let screen = screen(near: point) else {
+            return nil
+        }
+
+        return geometry(
+            screenFrame: screen.frame,
+            safeAreaInsets: screen.safeAreaInsets
+        )
+    }
+
+    static func geometry(
+        screenFrame: NSRect,
+        safeAreaInsets: NSEdgeInsets
+    ) -> ShelfNotchGeometry? {
+        guard safeAreaInsets.top > 0 else {
+            return nil
+        }
+
+        return ShelfNotchGeometry(
+            screenFrame: screenFrame,
+            safeAreaInsets: safeAreaInsets
+        )
+    }
+
+    private static func screen(near point: CGPoint) -> NSScreen? {
+        let screens = NSScreen.screens
+        return screens.first(where: { NSMouseInRect(point, $0.frame, false) }) ?? NSScreen.main ?? screens.first
+    }
+}
+
 enum ShelfPositioner {
+    static func notchFrame(near point: CGPoint, size: CGSize) -> NSRect? {
+        guard let geometry = ShelfNotchSupport.geometry(near: point) else {
+            return nil
+        }
+
+        return notchFrame(geometry: geometry, size: size)
+    }
+
+    static func notchFrame(geometry: ShelfNotchGeometry, size: CGSize) -> NSRect {
+        let x = geometry.screenFrame.midX - (size.width / 2)
+        let y = geometry.safeAreaTopY - size.height - 6
+
+        return NSRect(x: x, y: y, width: size.width, height: size.height)
+    }
+
     static func initialFrame(for size: CGSize, index: Int) -> NSRect {
         let mouseLocation = NSEvent.mouseLocation
         let visibleFrame = visibleFrame(near: mouseLocation)

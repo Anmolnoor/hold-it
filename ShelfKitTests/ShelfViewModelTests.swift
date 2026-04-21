@@ -350,6 +350,16 @@ final class ShelfViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.previewDescriptor)
     }
 
+    func testNotchPresentationInNotchMode() {
+        let viewModel = ShelfViewModel(
+            shelf: Shelf(name: "S"),
+            presentationMode: .notchExpanded
+        )
+
+        XCTAssertTrue(viewModel.isNotchPresentation)
+        XCTAssertFalse(viewModel.isPreview)
+    }
+
     // MARK: - setPresentationMode
 
     func testSetPresentationMode() {
@@ -427,5 +437,36 @@ final class ShelfViewModelTests: XCTestCase {
         let result = viewModel.items(for: [a.id, c.id])
 
         XCTAssertEqual(Set(result.map(\.id)), [a.id, c.id])
+    }
+
+    func testNotchBadgeUsesTrayIconWhenEmpty() {
+        let viewModel = ShelfViewModel(
+            shelf: Shelf(name: "S"),
+            presentationMode: .notchExpanded
+        )
+
+        XCTAssertEqual(viewModel.notchLeadingSymbolName, "tray")
+        XCTAssertEqual(viewModel.notchCountText, "0")
+    }
+
+    func testNotchBadgeUsesFileIconForFileBackedShelf() {
+        let item = ShelfItem(fileURL: URL(fileURLWithPath: "/tmp/test.txt"), isDirectory: false)
+        let viewModel = ShelfViewModel(
+            shelf: Shelf(name: "S", items: [item]),
+            presentationMode: .notchExpanded
+        )
+
+        XCTAssertEqual(viewModel.notchLeadingSymbolName, "doc.fill")
+        XCTAssertEqual(viewModel.notchCountText, "1")
+    }
+
+    func testSetDropTargetActiveUpdatesState() {
+        let viewModel = ShelfViewModel(shelf: Shelf(name: "S"))
+
+        viewModel.setDropTargetActive(true)
+        XCTAssertTrue(viewModel.isDropTargetActive)
+
+        viewModel.setDropTargetActive(false)
+        XCTAssertFalse(viewModel.isDropTargetActive)
     }
 }

@@ -13,6 +13,13 @@ final class ShelfPresentationModeTests: XCTestCase {
         XCTAssertNil(mode.previewDescriptor)
     }
 
+    func testNotchExpandedFlags() {
+        let mode = ShelfPresentationMode.notchExpanded
+        XCTAssertFalse(mode.isPreview)
+        XCTAssertTrue(mode.isNotchPresentation)
+        XCTAssertNil(mode.previewDescriptor)
+    }
+
     func testPreviewIsPreview() {
         let descriptor = DragPreviewDescriptor.placeholder
         let mode = ShelfPresentationMode.preview(descriptor)
@@ -34,6 +41,15 @@ final class ShelfPresentationModeTests: XCTestCase {
         XCTAssertEqual(returned?.summaryTitle, "2 items")
     }
 
+    func testNotchPreviewReturnsDescriptor() {
+        let descriptor = DragPreviewDescriptor.placeholder
+        let mode = ShelfPresentationMode.notchPreview(descriptor)
+
+        XCTAssertTrue(mode.isPreview)
+        XCTAssertTrue(mode.isNotchPresentation)
+        XCTAssertEqual(mode.previewDescriptor, descriptor)
+    }
+
     func testEquatable() {
         let a = ShelfPresentationMode.expanded
         let b = ShelfPresentationMode.expanded
@@ -45,5 +61,6 @@ final class ShelfPresentationModeTests: XCTestCase {
         XCTAssertEqual(c, d)
 
         XCTAssertNotEqual(a, c)
+        XCTAssertNotEqual(.notchExpanded, c)
     }
 }

@@ -4,6 +4,7 @@ import SwiftUI
 @MainActor
 final class ShelfWindowController: NSWindowController, NSWindowDelegate {
     static let landedShelfSize = CGSize(width: 240, height: 240)
+    static let notchShelfSize = CGSize(width: 248, height: 66)
 
     let shelfID: UUID
     var onClose: ((UUID) -> Void)?
@@ -23,8 +24,8 @@ final class ShelfWindowController: NSWindowController, NSWindowDelegate {
         )
 
         let initialSize = presentationMode.isPreview
-            ? CGSize(width: 280, height: 124)
-            : Self.landedShelfSize
+            ? (presentationMode.isNotchPresentation ? Self.notchShelfSize : CGSize(width: 280, height: 124))
+            : (presentationMode.isNotchPresentation ? Self.notchShelfSize : Self.landedShelfSize)
         let panel = ShelfPanel(
             frame: NSRect(origin: .zero, size: initialSize),
             presentationMode: presentationMode
@@ -39,9 +40,16 @@ final class ShelfWindowController: NSWindowController, NSWindowDelegate {
         }
 
         let rootView = ShelfRootView(viewModel: viewModel)
-        let dropView = DropReceiverView(rootView: rootView) { [weak self] items in
-            self?.handleDroppedItems(items)
-        }
+        let dropView = DropReceiverView(
+            rootView: rootView,
+            onItemsDropped: { [weak self] items in
+                self?.handleDroppedItems(items)
+            },
+            onDropTargetActiveChanged: { [weak self] isActive in
+                self?.viewModel.setDropTargetActive(isActive)
+            },
+            showsBorderHighlight: presentationMode.isNotchPresentation == false
+        )
         panel.contentView = dropView
     }
 
@@ -105,12 +113,23 @@ final class ShelfWindowController: NSWindowController, NSWindowDelegate {
             return
         }
 
-        viewModel.setPresentationMode(.expanded)
-        (window as? ShelfPanel)?.applyPresentationMode(.expanded)
-        let targetFrame = ShelfPositioner.topLeftFrame(
-            near: CGPoint(x: window.frame.midX, y: window.frame.midY),
-            size: Self.landedShelfSize
-        )
+        let targetMode: ShelfPresentationMode = viewModel.isNotchPresentation ? .notchExpanded : .expanded
+        viewModel.setPresentationMode(targetMode)
+        (window as? ShelfPanel)?.applyPresentationMode(targetMode)
+
+        let targetFrame: NSRect
+        if viewModel.isNotchPresentation,
+           let frame = ShelfPositioner.notchFrame(
+               near: CGPoint(x: window.frame.midX, y: window.frame.maxY),
+               size: Self.notchShelfSize
+           ) {
+            targetFrame = frame
+        } else {
+            targetFrame = ShelfPositioner.topLeftFrame(
+                near: CGPoint(x: window.frame.midX, y: window.frame.midY),
+                size: Self.landedShelfSize
+            )
+        }
 
         window.setFrame(targetFrame, display: true, animate: false)
         window.orderFrontRegardless()
