@@ -5,11 +5,13 @@ import SwiftUI
 final class SettingsWindowController: NSWindowController {
     init(
         preferencesStore: PreferencesStore,
+        clipboardHistoryStore: ClipboardHistoryStore,
         updateController: UpdateController,
         createShelfAction: @escaping () -> Void
     ) {
         let rootView = SettingsView(
             preferences: preferencesStore,
+            clipboardHistoryStore: clipboardHistoryStore,
             updateController: updateController,
             createShelf: createShelfAction
         )

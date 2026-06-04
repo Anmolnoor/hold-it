@@ -23,6 +23,8 @@ A macOS menu bar utility for drag-and-drop file collection shelves.
 
 ## Building from Source
 
+HoldIt is currently distributed as source only. There is no prebuilt notarized DMG; download a GitHub source archive or clone the repository and build the app locally.
+
 ### Requirements
 
 - macOS 13.0+
@@ -39,6 +41,10 @@ open ShelfKit.xcodeproj
 Select the **ShelfKit** scheme in Xcode, then build and run (Cmd+R).
 
 > **Note:** HoldIt runs as a menu bar utility (no dock icon). After launching, look for the icon in the menu bar.
+
+### Local Install
+
+To keep HoldIt on your Mac, build the **ShelfKit** scheme in Xcode, open the build products folder, and copy **HoldIt.app** to `/Applications`.
 
 ## Usage
 

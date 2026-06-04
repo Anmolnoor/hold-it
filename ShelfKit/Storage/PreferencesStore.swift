@@ -9,6 +9,8 @@ final class PreferencesStore: ObservableObject {
         static let shelfWidth = "preferences.shelfWidth"
         static let shelfHeight = "preferences.shelfHeight"
         static let checkForUpdatesAfterLaunch = "preferences.checkForUpdatesAfterLaunch"
+        static let clipboardHistoryEnabled = "preferences.clipboardHistoryEnabled"
+        static let hasSeenClipboardHistoryNotice = "preferences.hasSeenClipboardHistoryNotice"
     }
 
     @Published var preferredShelfWidth: Double {
@@ -29,6 +31,18 @@ final class PreferencesStore: ObservableObject {
         }
     }
 
+    @Published var clipboardHistoryEnabled: Bool {
+        didSet {
+            defaults.set(clipboardHistoryEnabled, forKey: Keys.clipboardHistoryEnabled)
+        }
+    }
+
+    @Published var hasSeenClipboardHistoryNotice: Bool {
+        didSet {
+            defaults.set(hasSeenClipboardHistoryNotice, forKey: Keys.hasSeenClipboardHistoryNotice)
+        }
+    }
+
     let newShelfHotkeyDescription = GlobalHotkeyController.Shortcut.newShelf.displayName
 
     private let defaults: UserDefaults
@@ -39,10 +53,16 @@ final class PreferencesStore: ObservableObject {
         let storedWidth = defaults.object(forKey: Keys.shelfWidth) as? Double
         let storedHeight = defaults.object(forKey: Keys.shelfHeight) as? Double
         let storedCheckForUpdatesAfterLaunch = defaults.object(forKey: Keys.checkForUpdatesAfterLaunch) as? Bool
+        let storedClipboardHistoryEnabled = defaults.object(forKey: Keys.clipboardHistoryEnabled) as? Bool
+        let storedHasSeenClipboardHistoryNotice = defaults.object(
+            forKey: Keys.hasSeenClipboardHistoryNotice
+        ) as? Bool
 
         preferredShelfWidth = storedWidth ?? 360
         preferredShelfHeight = storedHeight ?? 420
         checkForUpdatesAfterLaunch = storedCheckForUpdatesAfterLaunch ?? false
+        clipboardHistoryEnabled = storedClipboardHistoryEnabled ?? true
+        hasSeenClipboardHistoryNotice = storedHasSeenClipboardHistoryNotice ?? false
     }
 
     var launchAtLogin: Bool {
