@@ -49,6 +49,7 @@
 		A1B2C5270000000000000007 /* ShelfPresentationModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */; };
 		A1B2C5290000000000000008 /* UpdateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42C0000000000000008 /* UpdateServiceTests.swift */; };
 		A1B2C52A0000000000000009 /* AppBrandingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42D0000000000000009 /* AppBrandingTests.swift */; };
+		A1B2C52B000000000000000A /* SettingsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42E000000000000000A /* SettingsViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPresentationModeTests.swift; sourceTree = "<group>"; };
 		A1B2C42C0000000000000008 /* UpdateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceTests.swift; sourceTree = "<group>"; };
 		A1B2C42D0000000000000009 /* AppBrandingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBrandingTests.swift; sourceTree = "<group>"; };
+		A1B2C42E000000000000000A /* SettingsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				A1B2C4270000000000000004 /* DragSourceControllerTests.swift */,
 				A1B2C4280000000000000005 /* DropReceiverTests.swift */,
 				A1B2C4290000000000000006 /* PreferencesStoreTests.swift */,
+				A1B2C42E000000000000000A /* SettingsViewTests.swift */,
 				A1B2C4220000000000000000 /* ShakeDetectorTests.swift */,
 				A1B2C4240000000000000001 /* ShelfTests.swift */,
 				A1B2C4250000000000000002 /* ShelfItemTests.swift */,
@@ -412,6 +415,7 @@
 				A1B2C5270000000000000007 /* ShelfPresentationModeTests.swift in Sources */,
 				A1B2C5290000000000000008 /* UpdateServiceTests.swift in Sources */,
 				A1B2C52A0000000000000009 /* AppBrandingTests.swift in Sources */,
+				A1B2C52B000000000000000A /* SettingsViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ShelfKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -458,7 +462,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
 				PRODUCT_MODULE_NAME = ShelfKit;
 				PRODUCT_NAME = HoldIt;
@@ -473,7 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ShelfKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -481,7 +485,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
 				PRODUCT_MODULE_NAME = ShelfKit;
 				PRODUCT_NAME = HoldIt;
