@@ -4,12 +4,15 @@ import AppKit
 final class AppEnvironment {
     let preferencesStore: PreferencesStore
     let shelfCoordinator: ShelfCoordinator
+    let updateController: UpdateController
 
     private let menuBarController: MenuBarController
     private let globalDragMonitor: GlobalDragMonitor
     private let hotkeyController: GlobalHotkeyController
+    private let startupUpdateScheduler: StartupUpdateScheduler
     private lazy var settingsWindowController = SettingsWindowController(
         preferencesStore: preferencesStore,
+        updateController: updateController,
         createShelfAction: { [weak self] in
             self?.createShelf()
         }
@@ -20,12 +23,20 @@ final class AppEnvironment {
         let menuBarController = MenuBarController()
         let globalDragMonitor = GlobalDragMonitor()
         let hotkeyController = GlobalHotkeyController()
+        let updateController = UpdateController()
 
         self.preferencesStore = preferencesStore
         self.shelfCoordinator = ShelfCoordinator(preferencesStore: preferencesStore)
+        self.updateController = updateController
         self.menuBarController = menuBarController
         self.globalDragMonitor = globalDragMonitor
         self.hotkeyController = hotkeyController
+        self.startupUpdateScheduler = StartupUpdateScheduler(
+            preferences: preferencesStore,
+            checkForUpdates: {
+                await updateController.checkForUpdates()
+            }
+        )
     }
 
     func start() {
@@ -56,6 +67,7 @@ final class AppEnvironment {
         }
 
         globalDragMonitor.start()
+        startupUpdateScheduler.scheduleIfNeeded()
     }
 
     func createShelf() {

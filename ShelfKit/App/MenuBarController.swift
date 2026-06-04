@@ -20,9 +20,9 @@ final class MenuBarController: NSObject {
             return
         }
 
-        button.image = NSImage(systemSymbolName: "shippingbox", accessibilityDescription: "ShelfKit")
+        button.image = NSImage(systemSymbolName: "shippingbox", accessibilityDescription: "HoldIt")
         button.imagePosition = .imageOnly
-        button.toolTip = "ShelfKit"
+        button.toolTip = "HoldIt"
         statusItem.menu = menu
     }
 
@@ -31,7 +31,7 @@ final class MenuBarController: NSObject {
         menu.addItem(NSMenuItem(title: "New Shelf", action: #selector(newShelf), keyEquivalent: "n"))
         menu.addItem(NSMenuItem(title: "Settings…", action: #selector(openSettings), keyEquivalent: ","))
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "Quit ShelfKit", action: #selector(quit), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit HoldIt", action: #selector(quit), keyEquivalent: "q"))
 
         for item in menu.items {
             item.target = self

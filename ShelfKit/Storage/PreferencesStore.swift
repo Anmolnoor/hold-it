@@ -8,6 +8,7 @@ final class PreferencesStore: ObservableObject {
     private enum Keys {
         static let shelfWidth = "preferences.shelfWidth"
         static let shelfHeight = "preferences.shelfHeight"
+        static let checkForUpdatesAfterLaunch = "preferences.checkForUpdatesAfterLaunch"
     }
 
     @Published var preferredShelfWidth: Double {
@@ -22,6 +23,12 @@ final class PreferencesStore: ObservableObject {
         }
     }
 
+    @Published var checkForUpdatesAfterLaunch: Bool {
+        didSet {
+            defaults.set(checkForUpdatesAfterLaunch, forKey: Keys.checkForUpdatesAfterLaunch)
+        }
+    }
+
     let newShelfHotkeyDescription = GlobalHotkeyController.Shortcut.newShelf.displayName
 
     private let defaults: UserDefaults
@@ -31,9 +38,11 @@ final class PreferencesStore: ObservableObject {
 
         let storedWidth = defaults.object(forKey: Keys.shelfWidth) as? Double
         let storedHeight = defaults.object(forKey: Keys.shelfHeight) as? Double
+        let storedCheckForUpdatesAfterLaunch = defaults.object(forKey: Keys.checkForUpdatesAfterLaunch) as? Bool
 
         preferredShelfWidth = storedWidth ?? 360
         preferredShelfHeight = storedHeight ?? 420
+        checkForUpdatesAfterLaunch = storedCheckForUpdatesAfterLaunch ?? false
     }
 
     var launchAtLogin: Bool {

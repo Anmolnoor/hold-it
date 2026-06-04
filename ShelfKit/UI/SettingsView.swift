@@ -2,10 +2,12 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var preferences: PreferencesStore
+    @ObservedObject var updateController: UpdateController
     let createShelf: () -> Void
 
     var body: some View {
         Form {
+            /*
             Section("Shelf") {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Default shelf width: \(Int(preferences.preferredShelfWidth)) pt")
@@ -16,9 +18,33 @@ struct SettingsView: View {
                 }
                 .padding(.vertical, 4)
             }
+            */
 
             Section("General") {
                 Toggle("Launch at Login", isOn: launchAtLoginBinding)
+            }
+
+            Section("Updates") {
+                Toggle("Check for updates after launch", isOn: $preferences.checkForUpdatesAfterLaunch)
+
+                HStack {
+                    Button {
+                        Task {
+                            await updateController.checkAndOpenUpdate()
+                        }
+                    } label: {
+                        Label(updateController.actionTitle, systemImage: updateController.actionSystemImage)
+                    }
+                    .disabled(updateController.isBusy)
+
+                    if updateController.isBusy {
+                        ProgressView()
+                            .controlSize(.small)
+                    }
+                }
+
+                Text(updateController.statusMessage)
+                    .foregroundStyle(.secondary)
             }
 
             Section("Shortcut") {
