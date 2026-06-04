@@ -60,6 +60,30 @@ final class PreferencesStoreTests: XCTestCase {
         XCTAssertEqual(store.preferredShelfHeight, 700)
     }
 
+    func testCheckForUpdatesAfterLaunchDefaultsOff() {
+        let store = PreferencesStore(defaults: freshDefaults())
+
+        XCTAssertFalse(store.checkForUpdatesAfterLaunch)
+    }
+
+    func testCheckForUpdatesAfterLaunchPersistsToDefaults() {
+        let defaults = freshDefaults()
+        let store = PreferencesStore(defaults: defaults)
+
+        store.checkForUpdatesAfterLaunch = true
+
+        XCTAssertTrue(defaults.bool(forKey: "preferences.checkForUpdatesAfterLaunch"))
+    }
+
+    func testCheckForUpdatesAfterLaunchRestoresFromDefaults() {
+        let defaults = freshDefaults()
+        defaults.set(true, forKey: "preferences.checkForUpdatesAfterLaunch")
+
+        let store = PreferencesStore(defaults: defaults)
+
+        XCTAssertTrue(store.checkForUpdatesAfterLaunch)
+    }
+
     // MARK: - updateShelfSize clamping
 
     func testUpdateShelfSizeClampsMinimum() {

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1B2C3040000000000000000"
-               BuildableName = "ShelfKit.app"
+               BuildableName = "HoldIt.app"
                BlueprintName = "ShelfKit"
                ReferencedContainer = "container:ShelfKit.xcodeproj">
             </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B2C3040000000000000000"
-            BuildableName = "ShelfKit.app"
+            BuildableName = "HoldIt.app"
             BlueprintName = "ShelfKit"
             ReferencedContainer = "container:ShelfKit.xcodeproj">
          </BuildableReference>
@@ -86,7 +86,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B2C3040000000000000000"
-            BuildableName = "ShelfKit.app"
+            BuildableName = "HoldIt.app"
             BlueprintName = "ShelfKit"
             ReferencedContainer = "container:ShelfKit.xcodeproj">
          </BuildableReference>

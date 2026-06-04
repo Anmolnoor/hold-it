@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var preferences: PreferencesStore
+    @ObservedObject var updateController: UpdateController
     let createShelf: () -> Void
 
     var body: some View {
@@ -19,6 +20,29 @@ struct SettingsView: View {
 
             Section("General") {
                 Toggle("Launch at Login", isOn: launchAtLoginBinding)
+            }
+
+            Section("Updates") {
+                Toggle("Check for updates after launch", isOn: $preferences.checkForUpdatesAfterLaunch)
+
+                HStack {
+                    Button {
+                        Task {
+                            await updateController.checkAndOpenUpdate()
+                        }
+                    } label: {
+                        Label(updateController.actionTitle, systemImage: updateController.actionSystemImage)
+                    }
+                    .disabled(updateController.isBusy)
+
+                    if updateController.isBusy {
+                        ProgressView()
+                            .controlSize(.small)
+                    }
+                }
+
+                Text(updateController.statusMessage)
+                    .foregroundStyle(.secondary)
             }
 
             Section("Shortcut") {

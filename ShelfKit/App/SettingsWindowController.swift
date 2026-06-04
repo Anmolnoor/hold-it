@@ -3,17 +3,22 @@ import SwiftUI
 
 @MainActor
 final class SettingsWindowController: NSWindowController {
-    init(preferencesStore: PreferencesStore, createShelfAction: @escaping () -> Void) {
+    init(
+        preferencesStore: PreferencesStore,
+        updateController: UpdateController,
+        createShelfAction: @escaping () -> Void
+    ) {
         let rootView = SettingsView(
             preferences: preferencesStore,
+            updateController: updateController,
             createShelf: createShelfAction
         )
         let hostingController = NSHostingController(rootView: rootView)
 
         let window = NSWindow(contentViewController: hostingController)
-        window.title = "ShelfKit Settings"
+        window.title = "HoldIt Settings"
         window.styleMask = [.titled, .closable, .miniaturizable]
-        window.setContentSize(NSSize(width: 420, height: 260))
+        window.setContentSize(NSSize(width: 460, height: 360))
         window.center()
         window.isReleasedWhenClosed = false
 
