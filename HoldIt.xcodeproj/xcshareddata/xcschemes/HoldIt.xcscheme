@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1B2C3040000000000000000"
                BuildableName = "HoldIt.app"
-               BlueprintName = "ShelfKit"
-               ReferencedContainer = "container:ShelfKit.xcodeproj">
+               BlueprintName = "HoldIt"
+               ReferencedContainer = "container:HoldIt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "A1B2C3210000000000000000"
                BuildableName = "ShelfKitTests.xctest"
                BlueprintName = "ShelfKitTests"
-               ReferencedContainer = "container:ShelfKit.xcodeproj">
+               ReferencedContainer = "container:HoldIt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "A1B2C3210000000000000000"
                BuildableName = "ShelfKitTests.xctest"
                BlueprintName = "ShelfKitTests"
-               ReferencedContainer = "container:ShelfKit.xcodeproj">
+               ReferencedContainer = "container:HoldIt.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,8 +70,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B2C3040000000000000000"
             BuildableName = "HoldIt.app"
-            BlueprintName = "ShelfKit"
-            ReferencedContainer = "container:ShelfKit.xcodeproj">
+            BlueprintName = "HoldIt"
+            ReferencedContainer = "container:HoldIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -87,8 +87,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B2C3040000000000000000"
             BuildableName = "HoldIt.app"
-            BlueprintName = "ShelfKit"
-            ReferencedContainer = "container:ShelfKit.xcodeproj">
+            BlueprintName = "HoldIt"
+            ReferencedContainer = "container:HoldIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

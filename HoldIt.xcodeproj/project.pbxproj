@@ -7,24 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1B2C5310000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C4340000000000000010 /* Assets.xcassets */; };
 		A1B2C5010000000000000000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4010000000000000000 /* AppDelegate.swift */; };
 		A1B2C5020000000000000000 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4020000000000000000 /* AppEnvironment.swift */; };
-		A1B2C5280000000000000008 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42B0000000000000008 /* UpdateService.swift */; };
 		A1B2C5030000000000000000 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4030000000000000000 /* MenuBarController.swift */; };
-		A1B2C52F000000000000000E /* ClipboardHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C432000000000000000E /* ClipboardHistoryController.swift */; };
 		A1B2C5040000000000000000 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4040000000000000000 /* SettingsWindowController.swift */; };
 		A1B2C5050000000000000000 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4050000000000000000 /* Shelf.swift */; };
 		A1B2C5060000000000000000 /* ShelfItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4060000000000000000 /* ShelfItem.swift */; };
-		A1B2C52D000000000000000C /* ClipboardHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C430000000000000000C /* ClipboardHistoryItem.swift */; };
 		A1B2C5070000000000000000 /* DragSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4070000000000000000 /* DragSourceController.swift */; };
 		A1B2C5080000000000000000 /* DropReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4080000000000000000 /* DropReceiver.swift */; };
 		A1B2C5090000000000000000 /* DropReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4090000000000000000 /* DropReceiverView.swift */; };
 		A1B2C50A0000000000000000 /* GlobalHotkeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40A0000000000000000 /* GlobalHotkeyController.swift */; };
 		A1B2C50B0000000000000000 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40B0000000000000000 /* PreferencesStore.swift */; };
-		A1B2C52E000000000000000D /* ClipboardHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C431000000000000000D /* ClipboardHistoryStore.swift */; };
 		A1B2C50C0000000000000000 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40C0000000000000000 /* SettingsView.swift */; };
-		A1B2C530000000000000000F /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C433000000000000000F /* ClipboardHistoryView.swift */; };
 		A1B2C50D0000000000000000 /* ShelfItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40D0000000000000000 /* ShelfItemView.swift */; };
 		A1B2C50E0000000000000000 /* ShelfRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40E0000000000000000 /* ShelfRootView.swift */; };
 		A1B2C50F0000000000000000 /* ShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C40F0000000000000000 /* ShelfViewModel.swift */; };
@@ -33,7 +27,6 @@
 		A1B2C5120000000000000000 /* ShelfPositioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4120000000000000000 /* ShelfPositioner.swift */; };
 		A1B2C5130000000000000000 /* ShelfWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4130000000000000000 /* ShelfWindowController.swift */; };
 		A1B2C5140000000000000000 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4150000000000000000 /* main.swift */; };
-		A1B2C5150000000000000000 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4160000000000000000 /* AppKit.framework */; };
 		A1B2C5160000000000000000 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4170000000000000000 /* Carbon.framework */; };
 		A1B2C5170000000000000000 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4180000000000000000 /* SwiftUI.framework */; };
 		A1B2C5180000000000000000 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4190000000000000000 /* UniformTypeIdentifiers.framework */; };
@@ -52,10 +45,17 @@
 		A1B2C5250000000000000005 /* DropReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4280000000000000005 /* DropReceiverTests.swift */; };
 		A1B2C5260000000000000006 /* PreferencesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C4290000000000000006 /* PreferencesStoreTests.swift */; };
 		A1B2C5270000000000000007 /* ShelfPresentationModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */; };
+		A1B2C5280000000000000008 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42B0000000000000008 /* UpdateService.swift */; };
 		A1B2C5290000000000000008 /* UpdateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42C0000000000000008 /* UpdateServiceTests.swift */; };
 		A1B2C52A0000000000000009 /* AppBrandingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42D0000000000000009 /* AppBrandingTests.swift */; };
 		A1B2C52B000000000000000A /* SettingsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42E000000000000000A /* SettingsViewTests.swift */; };
 		A1B2C52C000000000000000B /* ClipboardHistoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C42F000000000000000B /* ClipboardHistoryStoreTests.swift */; };
+		A1B2C52D000000000000000C /* ClipboardHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C430000000000000000C /* ClipboardHistoryItem.swift */; };
+		A1B2C52E000000000000000D /* ClipboardHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C431000000000000000D /* ClipboardHistoryStore.swift */; };
+		A1B2C52F000000000000000E /* ClipboardHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C432000000000000000E /* ClipboardHistoryController.swift */; };
+		A1B2C530000000000000000F /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C433000000000000000F /* ClipboardHistoryView.swift */; };
+		A1B2C5310000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C4340000000000000010 /* Assets.xcassets */; };
+		DE57945A2FD1900200AA7D9C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C4160000000000000000 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,29 +64,23 @@
 			containerPortal = A1B2C3010000000000000000 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A1B2C3040000000000000000;
-			remoteInfo = ShelfKit;
+			remoteInfo = HoldIt;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A1B2C4010000000000000000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1B2C4340000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C4020000000000000000 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
-		A1B2C42B0000000000000008 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		A1B2C4030000000000000000 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
-		A1B2C432000000000000000E /* ClipboardHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryController.swift; sourceTree = "<group>"; };
 		A1B2C4040000000000000000 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		A1B2C4050000000000000000 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		A1B2C4060000000000000000 /* ShelfItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItem.swift; sourceTree = "<group>"; };
-		A1B2C430000000000000000C /* ClipboardHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryItem.swift; sourceTree = "<group>"; };
 		A1B2C4070000000000000000 /* DragSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSourceController.swift; sourceTree = "<group>"; };
 		A1B2C4080000000000000000 /* DropReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiver.swift; sourceTree = "<group>"; };
 		A1B2C4090000000000000000 /* DropReceiverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiverView.swift; sourceTree = "<group>"; };
 		A1B2C40A0000000000000000 /* GlobalHotkeyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHotkeyController.swift; sourceTree = "<group>"; };
 		A1B2C40B0000000000000000 /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
-		A1B2C431000000000000000D /* ClipboardHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryStore.swift; sourceTree = "<group>"; };
 		A1B2C40C0000000000000000 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A1B2C433000000000000000F /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
 		A1B2C40D0000000000000000 /* ShelfItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItemView.swift; sourceTree = "<group>"; };
 		A1B2C40E0000000000000000 /* ShelfRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRootView.swift; sourceTree = "<group>"; };
 		A1B2C40F0000000000000000 /* ShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewModel.swift; sourceTree = "<group>"; };
@@ -117,10 +111,16 @@
 		A1B2C4280000000000000005 /* DropReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropReceiverTests.swift; sourceTree = "<group>"; };
 		A1B2C4290000000000000006 /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
 		A1B2C42A0000000000000007 /* ShelfPresentationModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfPresentationModeTests.swift; sourceTree = "<group>"; };
+		A1B2C42B0000000000000008 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		A1B2C42C0000000000000008 /* UpdateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceTests.swift; sourceTree = "<group>"; };
 		A1B2C42D0000000000000009 /* AppBrandingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBrandingTests.swift; sourceTree = "<group>"; };
 		A1B2C42E000000000000000A /* SettingsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTests.swift; sourceTree = "<group>"; };
 		A1B2C42F000000000000000B /* ClipboardHistoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryStoreTests.swift; sourceTree = "<group>"; };
+		A1B2C430000000000000000C /* ClipboardHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryItem.swift; sourceTree = "<group>"; };
+		A1B2C431000000000000000D /* ClipboardHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryStore.swift; sourceTree = "<group>"; };
+		A1B2C432000000000000000E /* ClipboardHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryController.swift; sourceTree = "<group>"; };
+		A1B2C433000000000000000F /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
+		A1B2C4340000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C5150000000000000000 /* AppKit.framework in Frameworks */,
 				A1B2C5160000000000000000 /* Carbon.framework in Frameworks */,
+				DE57945A2FD1900200AA7D9C /* AppKit.framework in Frameworks */,
 				A1B2C5170000000000000000 /* SwiftUI.framework in Frameworks */,
 				A1B2C5180000000000000000 /* UniformTypeIdentifiers.framework in Frameworks */,
 			);
@@ -295,9 +295,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1B2C3040000000000000000 /* ShelfKit */ = {
+		A1B2C3040000000000000000 /* HoldIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKit" */;
+			buildConfigurationList = A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "HoldIt" */;
 			buildPhases = (
 				A1B2C3070000000000000000 /* Sources */,
 				A1B2C3080000000000000000 /* Frameworks */,
@@ -307,7 +307,7 @@
 			);
 			dependencies = (
 			);
-			name = ShelfKit;
+			name = HoldIt;
 			packageProductDependencies = (
 			);
 			productName = HoldIt;
@@ -348,7 +348,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1B2C3050000000000000000 /* Build configuration list for PBXProject "ShelfKit" */;
+			buildConfigurationList = A1B2C3050000000000000000 /* Build configuration list for PBXProject "HoldIt 3.49.22 AM" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -361,7 +361,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1B2C3040000000000000000 /* ShelfKit */,
+				A1B2C3040000000000000000 /* HoldIt */,
 				A1B2C3210000000000000000 /* ShelfKitTests */,
 			);
 		};
@@ -448,7 +448,7 @@
 /* Begin PBXTargetDependency section */
 		A1B2C3270000000000000000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1B2C3040000000000000000 /* ShelfKit */;
+			target = A1B2C3040000000000000000 /* HoldIt */;
 			targetProxy = A1B2C3260000000000000000 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -480,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ShelfKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -488,10 +489,9 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.HoldIt;
 				PRODUCT_MODULE_NAME = ShelfKit;
 				PRODUCT_NAME = HoldIt;
-				ENABLE_TESTABILITY = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -512,7 +512,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.ShelfKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anmolnoor.HoldIt;
 				PRODUCT_MODULE_NAME = ShelfKit;
 				PRODUCT_NAME = HoldIt;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -564,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1B2C3050000000000000000 /* Build configuration list for PBXProject "ShelfKit" */ = {
+		A1B2C3050000000000000000 /* Build configuration list for PBXProject "HoldIt 3.49.22 AM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B2C6010000000000000000 /* Debug */,
@@ -573,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "ShelfKit" */ = {
+		A1B2C3060000000000000000 /* Build configuration list for PBXNativeTarget "HoldIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B2C6030000000000000000 /* Debug */,

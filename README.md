@@ -35,16 +35,16 @@ HoldIt is currently distributed as source only. There is no prebuilt notarized D
 ```bash
 git clone git@github.com:Anmolnoor/hold-it.git
 cd hold-it
-open ShelfKit.xcodeproj
+open HoldIt.xcodeproj
 ```
 
-Select the **ShelfKit** scheme in Xcode, then build and run (Cmd+R).
+Select the **HoldIt** scheme in Xcode, then build and run (Cmd+R).
 
 > **Note:** HoldIt runs as a menu bar utility (no dock icon). After launching, look for the icon in the menu bar.
 
 ### Local Install
 
-To keep HoldIt on your Mac, build the **ShelfKit** scheme in Xcode, open the build products folder, and copy **HoldIt.app** to `/Applications`.
+To keep HoldIt on your Mac, build the **HoldIt** scheme in Xcode, open the build products folder, and copy **HoldIt.app** to `/Applications`.
 
 ## Usage
 
