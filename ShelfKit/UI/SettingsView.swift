@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var preferences: PreferencesStore
+    @ObservedObject var clipboardHistoryStore: ClipboardHistoryStore
     @ObservedObject var updateController: UpdateController
     let createShelf: () -> Void
 
@@ -22,6 +23,15 @@ struct SettingsView: View {
 
             Section("General") {
                 Toggle("Launch at Login", isOn: launchAtLoginBinding)
+            }
+
+            Section("Clipboard") {
+                Toggle("Clipboard History", isOn: $preferences.clipboardHistoryEnabled)
+
+                Button("Clear Clipboard History", role: .destructive) {
+                    clipboardHistoryStore.clear()
+                }
+                .disabled(clipboardHistoryStore.items.isEmpty)
             }
 
             Section("Updates") {

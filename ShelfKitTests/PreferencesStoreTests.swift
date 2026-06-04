@@ -84,6 +84,36 @@ final class PreferencesStoreTests: XCTestCase {
         XCTAssertTrue(store.checkForUpdatesAfterLaunch)
     }
 
+    func testClipboardHistoryDefaultsOn() {
+        let store = PreferencesStore(defaults: freshDefaults())
+
+        XCTAssertTrue(store.clipboardHistoryEnabled)
+    }
+
+    func testClipboardHistoryEnabledPersistsToDefaults() {
+        let defaults = freshDefaults()
+        let store = PreferencesStore(defaults: defaults)
+
+        store.clipboardHistoryEnabled = false
+
+        XCTAssertFalse(defaults.bool(forKey: "preferences.clipboardHistoryEnabled"))
+    }
+
+    func testClipboardHistoryNoticeDefaultsUnseen() {
+        let store = PreferencesStore(defaults: freshDefaults())
+
+        XCTAssertFalse(store.hasSeenClipboardHistoryNotice)
+    }
+
+    func testClipboardHistoryNoticePersistsToDefaults() {
+        let defaults = freshDefaults()
+        let store = PreferencesStore(defaults: defaults)
+
+        store.hasSeenClipboardHistoryNotice = true
+
+        XCTAssertTrue(defaults.bool(forKey: "preferences.hasSeenClipboardHistoryNotice"))
+    }
+
     // MARK: - updateShelfSize clamping
 
     func testUpdateShelfSizeClampsMinimum() {
